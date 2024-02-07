@@ -18,7 +18,7 @@ app.use(methodOverride('_method'));
 app.get('/', async (req, res) => {
     try {
         const articles = await Article.find().sort({ createdAt: 'desc' });
-        res.render('articles/index', { articles: articles });
+        res.render('views/articles/index', { articles: articles });
     } catch (error) {
         console.error("Error retrieving articles:", error);
         res.status(500).send("Internal Server Error");
